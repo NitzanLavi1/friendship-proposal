@@ -28,8 +28,10 @@
         triggerCelebration();
     });
 
-    // ─── NO — moves around the paper on hover via transform ───────────────────
-    noOption.addEventListener('mouseenter', () => {
+    // ─── NO — moves around the paper on hover/touch via transform ─────────────
+    noOption.addEventListener('mouseenter', moveNoButton);
+    noOption.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Prevent accidental selection or zoom
         moveNoButton();
     });
 

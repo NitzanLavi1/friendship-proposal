@@ -302,10 +302,16 @@ body {
     }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
     .note-container {
         width: 92vw;
+    }
+    .checkbox-option {
+        padding: 10px 0; /* Larger vertical hit area for mobile */
+    }
+    .custom-checkbox {
+        width: 1.2em;
+        height: 1.2em;
     }
 }
 
