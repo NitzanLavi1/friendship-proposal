@@ -46,12 +46,12 @@
         const curTop  = orig.top  + curDy;
 
         // Target zone: the paper's lined writing area, inset from edges
-        const leftMin = paper.left + paper.width  * 0.18;
-        const leftMax = paper.left + paper.width  * 0.72 - btnW;
-        const topMin  = paper.top  + paper.height * 0.10;
-        const topMax  = paper.top  + paper.height * 0.85 - btnH;
+        const leftMin = paper.left + paper.width  * 0.15;
+        const leftMax = paper.left + paper.width  * 0.75 - btnW;
+        const topMin  = paper.top  + paper.height * 0.05;
+        const topMax  = paper.top  + paper.height * 0.90 - btnH;
 
-        // Pick a target at least 80px away from current visual position
+        // Pick a target at least 120px away from current visual position
         let targetLeft, targetTop, attempts = 0;
         do {
             targetLeft = leftMin + Math.random() * (leftMax - leftMin);
@@ -59,8 +59,8 @@
             attempts++;
         } while (
             attempts < 80 &&
-            Math.abs(targetLeft - curLeft) < 80 &&
-            Math.abs(targetTop  - curTop)  < 80
+            Math.abs(targetLeft - curLeft) < 120 &&
+            Math.abs(targetTop  - curTop)  < 120
         );
 
         // Translate = how far to move from the ORIGINAL untranslated position
@@ -69,9 +69,9 @@
 
         noOption.style.transform = `translate(${curDx}px, ${curDy}px)`;
 
-        // Grow Yes a little after repeated attempts
-        if (moveCount >= 3) {
-            const scale = Math.min(1 + (moveCount - 2) * 0.06, 1.5);
+        // Grow Yes a little after every attempt
+        if (moveCount >= 1) {
+            const scale = Math.min(1 + (moveCount) * 0.08, 1.8);
             yesOption.style.transform = `scale(${scale})`;
         }
     }
